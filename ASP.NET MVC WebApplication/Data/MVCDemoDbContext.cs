@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ASP.NET_MVC_WebApplication.Models.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_MVC_WebApplication.Data
 {
@@ -9,6 +10,6 @@ namespace ASP.NET_MVC_WebApplication.Data
         }
 
 
-        public DbSet<> MyProperty { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
