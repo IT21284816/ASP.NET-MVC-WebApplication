@@ -35,8 +35,8 @@ namespace ASP.NET_MVC_WebApplication.Controllers
 
             };
 
-            mvcDemoDbContext.Employees.Add(employee);
-            mvcDemoDbContext.SaveChanges();
+            await mvcDemoDbContext.Employees.AddAsync(employee);
+            await mvcDemoDbContext.SaveChangesAsync();
             return RedirectToAction("Add");
 
         }
