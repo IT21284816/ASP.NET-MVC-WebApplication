@@ -21,7 +21,7 @@ namespace ASP.NET_MVC_WebApplication.Controllers
         public async Task<IActionResult> Index()
         {
            var employees = await mvcDemoDbContext.Employees.ToListAsync();
-
+            return View(employees);
         }
 
         [HttpGet]
