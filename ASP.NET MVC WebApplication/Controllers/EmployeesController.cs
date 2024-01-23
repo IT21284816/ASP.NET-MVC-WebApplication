@@ -20,7 +20,7 @@ namespace ASP.NET_MVC_WebApplication.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Add(AddEmployeeViewModel addEmployeeRequest)
         {
             var employee = new Employee()

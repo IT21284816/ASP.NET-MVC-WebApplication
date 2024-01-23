@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_MVC_WebApplication.Migrations
 {
     [DbContext(typeof(MVCDemoDbContext))]
-    [Migration("20240120035841_Inotial Migration")]
-    partial class InotialMigration
+    [Migration("20240123041639_Initial Migration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,9 @@ namespace ASP.NET_MVC_WebApplication.Migrations
 
             modelBuilder.Entity("ASP.NET_MVC_WebApplication.Models.Domain.Employee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
