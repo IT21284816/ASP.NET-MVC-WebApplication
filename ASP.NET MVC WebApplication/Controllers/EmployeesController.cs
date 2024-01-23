@@ -2,6 +2,8 @@
 using ASP.NET_MVC_WebApplication.Models;
 using ASP.NET_MVC_WebApplication.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace ASP.NET_MVC_WebApplication.Controllers
 {
@@ -12,6 +14,14 @@ namespace ASP.NET_MVC_WebApplication.Controllers
         public EmployeesController(MVCDemoDbContext mvcDemoDbContext)
         {
             this.mvcDemoDbContext = mvcDemoDbContext;
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+           var employees = await mvcDemoDbContext.Employees.ToListAsync();
+
         }
 
         [HttpGet]
