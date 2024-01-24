@@ -51,5 +51,15 @@ namespace ASP.NET_MVC_WebApplication.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult View(Guid id)
+        {
+            var employee = mvcDemoDbContext.Employees.FirstAsync(x => x.Id == id);
+
+            
+
+            return View(employee);
+        }
+
     }
 }
