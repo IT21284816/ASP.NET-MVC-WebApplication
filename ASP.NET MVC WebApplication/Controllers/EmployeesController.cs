@@ -68,7 +68,7 @@ namespace ASP.NET_MVC_WebApplication.Controllers
                     DateOfBirth = employee.DateOfBirth,
                     Department = employee.Department,
                 };
-                return View(viewModel);
+                return await Task.Run(() => View("view",viewModel));
             }         
 
             return View(employee);
@@ -93,6 +93,7 @@ namespace ASP.NET_MVC_WebApplication.Controllers
                 return RedirectToAction("Index");
 
             }
+            return RedirectToAction("Index");
         }
 
     }
