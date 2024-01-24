@@ -96,5 +96,22 @@ namespace ASP.NET_MVC_WebApplication.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> Delete (UpdateEmployeeViewModel viewModel)
+        {
+            var employee = await mvcDemoDbContext.Employees.FindAsync(viewModel.Id);
+
+            if (employee != null)
+            {
+                mvcDemoDbContext.Employees.Remove(employee);
+                await mvcDemoDbContext.SaveChangesAsync();  
+
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
