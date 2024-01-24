@@ -56,15 +56,20 @@ namespace ASP.NET_MVC_WebApplication.Controllers
         {
             var employee = await mvcDemoDbContext.Employees.FirstAsync(x => x.Id == id);
 
-            var viewModel = new UpdateEmployeeViewModel()
+            if (employee!=null)
             {
-                Id = employee.Id,
-                Name = employee.Name,
-                Email = employee.Email,
-                Salary = employee.Salary,
-                DateOfBirth = employee.DateOfBirth,
-                Department = employee.Department,
-            }
+
+                var viewModel = new UpdateEmployeeViewModel()
+                {
+                    Id = employee.Id,
+                    Name = employee.Name,
+                    Email = employee.Email,
+                    Salary = employee.Salary,
+                    DateOfBirth = employee.DateOfBirth,
+                    Department = employee.Department,
+                };
+                return View(viewModel);
+            }         
 
             return View(employee);
         }
