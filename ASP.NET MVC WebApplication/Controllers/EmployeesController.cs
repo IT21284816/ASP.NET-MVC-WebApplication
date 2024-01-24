@@ -74,5 +74,22 @@ namespace ASP.NET_MVC_WebApplication.Controllers
             return View(employee);
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> View (UpdateEmployeeViewModel model)
+        {
+            var employee = await mvcDemoDbContext.Employees.FindAsync(model.Id);
+
+            if (employee!=null)
+            {
+                employee.Name = model.Name;
+                employee.Email = model.Email;   
+                employee.Salary = model.Salary;
+                employee.DateOfBirth = model.DateOfBirth;
+                employee.Department = model.Department;
+
+            }
+        }
+
     }
 }
