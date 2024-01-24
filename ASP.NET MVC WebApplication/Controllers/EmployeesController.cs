@@ -88,6 +88,10 @@ namespace ASP.NET_MVC_WebApplication.Controllers
                 employee.DateOfBirth = model.DateOfBirth;
                 employee.Department = model.Department;
 
+               await mvcDemoDbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+
             }
         }
 
